@@ -114,3 +114,12 @@ class KnowledgeBase(DomainModel):
     metadata: KnowledgeBaseMetadata
 
     chunks: list[KnowledgeChunk] = Field(default_factory=list)
+
+class ValidationReport(DomainModel):
+    """Validation result for a KnowledgeBase."""
+
+    valid: bool
+
+    errors: list[str] = Field(default_factory=list)
+
+    warnings: list[str] = Field(default_factory=list)
