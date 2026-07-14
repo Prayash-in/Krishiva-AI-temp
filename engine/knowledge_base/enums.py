@@ -32,12 +32,11 @@ class Priority(StrEnum):
     """Retrieval importance."""
 
     LOW = "low"
-
     MEDIUM = "medium"
-
     HIGH = "high"
-
     CRITICAL = "critical"
+
+    INDEXING_ONLY = "indexing_only"
 
 
 class Language(StrEnum):

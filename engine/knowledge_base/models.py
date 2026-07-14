@@ -62,15 +62,15 @@ class ChunkMetadata(DomainModel):
 
     growth_stages: list[str] = Field(default_factory=list)
 
-    tags: list[str] = Field(default_factory=list)
+    retrieval_triggers: list[str] = Field(default_factory=list)
 
-    languages: list[str] = Field(default_factory=list)
+    # tags: list[str] = Field(default_factory=list)
 
-    retrieval_trigger: str | None = None
+    # languages: list[str] = Field(default_factory=list)
 
     region: str | None = None
 
-    source: str | None = None
+    # source: str | None = None
 
 
 class StructuredContent(DomainModel):
