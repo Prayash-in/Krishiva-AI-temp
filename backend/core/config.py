@@ -34,9 +34,20 @@ class Settings(BaseSettings):
 
     api_prefix: str = "/api/v1"
 
+    # Server bind + reload, used when running ``python backend/main.py``
+    # directly. Override with KRISHIVA_HOST / KRISHIVA_PORT / KRISHIVA_RELOAD.
+    host: str = "127.0.0.1"
+    port: int = 8000
+    reload: bool = False
+
     # Allowed CORS origins. Defaults to a permissive value for local
     # development; set an explicit list in production.
     cors_origins: list[str] = ["*"]
+
+    # When True, the backend serves the real knowledge engine; if it fails to
+    # construct (e.g. missing index) it falls back to the stub so the API still
+    # boots. Set KRISHIVA_USE_REAL_ENGINE=0 to force the stub.
+    use_real_engine: bool = True
 
 
 @lru_cache
