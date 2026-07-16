@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+/*
+ * Krishiva AI — Design Tokens (PRD §15)
+ * Single source of truth for all visual decisions. Dark mode is a curated
+ * palette toggled via the `dark` class on <html> (PRD RULE 206).
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-surface: #fafafa;
+  --color-surface-elevated: #ffffff;
+  --color-surface-hover: #f3f4f6;
+  --color-surface-active: #e8eaed;
+  --color-surface-inset: #f0f1f3;
+
+  /* Text */
+  --color-text-primary: #111114;
+  --color-text-secondary: #5f6368;
+  --color-text-tertiary: #9aa0a6;
+  --color-text-inverse: #ffffff;
+
+  /* Brand / accent */
+  --color-accent: #2d7a4f;
+  --color-accent-hover: #236b42;
+  --color-accent-subtle: rgba(45, 122, 79, 0.08);
+
+  /* Semantic */
+  --color-success: #1a8d4e;
+  --color-success-subtle: rgba(26, 141, 78, 0.08);
+  --color-warning: #d97706;
+  --color-warning-subtle: rgba(217, 119, 6, 0.08);
+  --color-error: #dc2626;
+  --color-error-subtle: rgba(220, 38, 38, 0.08);
+  --color-info: #2563eb;
+  --color-info-subtle: rgba(37, 99, 235, 0.08);
+
+  /* Backdrop mesh — NotebookLM-style wash of green → lavender → blue */
+  --backdrop-mesh:
+    radial-gradient(ellipse 70% 55% at 12% -5%, rgba(52, 211, 153, 0.32), transparent 65%),
+    radial-gradient(ellipse 65% 55% at 88% 5%, rgba(129, 140, 248, 0.28), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 55% 108%, rgba(96, 165, 250, 0.24), transparent 65%);
+
+  /* UI chrome */
+  --color-focus-ring: #3b82f6;
+  --color-divider: rgba(0, 0, 0, 0.06);
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-skeleton-base: #e8eaed;
+  --color-skeleton-shine: #f3f4f6;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.15);
+
+  /* Elevation */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 10px rgba(0, 0, 0, 0.04);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-moderate: 300ms;
+  --duration-slow: 400ms;
+  --duration-glacial: 600ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: light;
+}
+
+.dark {
+  --color-bg: #0a0a0c;
+  --color-surface: #111114;
+  --color-surface-elevated: #1a1a1f;
+  --color-surface-hover: #1f1f26;
+  --color-surface-active: #26262e;
+  --color-surface-inset: #0d0d10;
+
+  --color-text-primary: #ededef;
+  --color-text-secondary: #9e9ea8;
+  --color-text-tertiary: #5e5e6a;
+  --color-text-inverse: #111114;
+
+  --color-accent: #4ade80;
+  --color-accent-hover: #5ae890;
+  --color-accent-subtle: rgba(74, 222, 128, 0.1);
+
+  --color-success: #4ade80;
+  --color-success-subtle: rgba(74, 222, 128, 0.1);
+  --color-warning: #fbbf24;
+  --color-warning-subtle: rgba(251, 191, 36, 0.1);
+  --color-error: #f87171;
+  --color-error-subtle: rgba(248, 113, 113, 0.1);
+  --color-info: #60a5fa;
+  --color-info-subtle: rgba(96, 165, 250, 0.1);
+
+  --backdrop-mesh:
+    radial-gradient(ellipse 70% 55% at 12% -5%, rgba(52, 211, 153, 0.14), transparent 65%),
+    radial-gradient(ellipse 65% 55% at 88% 5%, rgba(129, 140, 248, 0.13), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 55% 108%, rgba(96, 165, 250, 0.11), transparent 65%);
+
+  --color-focus-ring: #60a5fa;
+  --color-divider: rgba(255, 255, 255, 0.06);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-skeleton-base: #1f1f26;
+  --color-skeleton-shine: #2a2a34;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5), 0 8px 10px rgba(0, 0, 0, 0.3);
+
+  color-scheme: dark;
+}
+
+/* Map design tokens into Tailwind's theme so utilities resolve to them. */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-surface-active: var(--color-surface-active);
+  --color-surface-inset: var(--color-surface-inset);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-inverse: var(--color-text-inverse);
+
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-subtle: var(--color-accent-subtle);
+
+  --color-success: var(--color-success);
+  --color-success-subtle: var(--color-success-subtle);
+  --color-warning: var(--color-warning);
+  --color-warning-subtle: var(--color-warning-subtle);
+  --color-error: var(--color-error);
+  --color-error-subtle: var(--color-error-subtle);
+  --color-info: var(--color-info);
+  --color-info-subtle: var(--color-info-subtle);
+
+  --color-focus-ring: var(--color-focus-ring);
+  --color-divider: var(--color-divider);
+  --color-overlay: var(--color-overlay);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-skeleton-base: var(--color-skeleton-base);
+  --color-skeleton-shine: var(--color-skeleton-shine);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "SF Pro Text", "Segoe UI", "Noto Sans", sans-serif;
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Apple-style text: slightly negative tracking at body sizes */
+  letter-spacing: -0.011em;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Display typography: tighter tracking as size grows (SF-style optical fit) */
+h1,
+h2 {
+  letter-spacing: -0.022em;
+}
+h3 {
+  letter-spacing: -0.017em;
+}
+
+/*
+ * NotebookLM-style backdrop wash for the main app canvas. The mesh lives on
+ * a ::before layer so it can fade in gently on first load / refresh without
+ * animating the content above it.
+ */
+.bg-mesh {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-bg);
+}
+.bg-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--backdrop-mesh);
+  animation: mesh-fade-in 1.8s var(--ease-out) both;
+}
+
+@keyframes mesh-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Focus rings only for keyboard users (PRD RULE 209). */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Typing / thinking dots */
+@keyframes dot-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+/* Empty-state / card entrance */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gentle float for the home hero leaf */
+@keyframes leaf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Empty-message input nudge (PRD §13 chat errors) */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+/* Streaming caret */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
