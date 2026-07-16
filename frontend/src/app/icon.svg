@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="7" fill="#2d7a4f"/>
+  <g transform="translate(4 4)" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Stem -->
+    <path d="M12 21c0-4.5 0-7 0-9.5"/>
+    <!-- Right leaf -->
+    <path d="M12 12c0-4 2.5-6.5 7-7-.5 4.5-3 7-7 7Z" fill="#ffffff" fill-opacity="0.22"/>
+    <!-- Left leaf -->
+    <path d="M12 15c0-3.2-2-5.2-5.5-5.6C6.9 12.6 8.8 15 12 15Z" fill="#ffffff" fill-opacity="0.15"/>
+  </g>
+</svg>
